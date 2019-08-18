@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Registration</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="/fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <form th:action="@{/registration}" method="post">
+        <label for="username">Login</label>
+        <input type="text" name="username" id="username" autocomplete="off">
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" autocomplete="off">
+        <br>
+        <button type="submit">Register</button>
+    </form>
+    <br>
+    <span th:if="${error != null}" th:text="${error}"></span>
+</div>
+
+<div th:replace="/fragments/import :: scripts"></div>
+</body>
+</html>

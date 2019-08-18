@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Hello</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<div th:replace="/fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <p th:text="'Hello, ' + ${name} + '!'"></p>
+    <br>
+    <a href="/registration">Registration</a>
+    <a href="/login">Login</a>
+</div>
+
+<script src="/webjars/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="/webjars/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
