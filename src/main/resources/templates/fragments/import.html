@@ -1,5 +1,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
+<head th:fragment="header(title)">
+    <!--/*@thymesVar id="title" type="templates"*/-->
+    <title th:replace="${title}">Spring App</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
 <div th:fragment="scripts">
     <script src="/webjars/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="/webjars/popper.js/1.15.0/umd/popper.min.js"></script>

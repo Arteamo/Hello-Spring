@@ -12,7 +12,7 @@
         <java.version>12</java.version>
         <jquery.version>3.4.1</jquery.version>
         <bootstrap.version>4.3.1</bootstrap.version>
-        <popper.js.version>1.15.0</popper.js.version>
+        <popper.version>1.15.0</popper.version>
     </properties>
 
     <parent>
@@ -65,17 +65,17 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>3.4.1</version>
+            <version>${jquery.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>popper.js</artifactId>
-            <version>1.15.0</version>
+            <version>${popper.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>4.3.1</version>
+            <version>${bootstrap.version}</version>
         </dependency>
     </dependencies>
 

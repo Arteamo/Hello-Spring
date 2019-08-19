@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:replace="/fragments/import :: header(~{::title})">
     <title>Registration</title>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 <div th:replace="/fragments/navbar :: navbar"></div>
