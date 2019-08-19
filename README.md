@@ -1,16 +1,15 @@
-## Spring-MVC-Web
+# Spring-MVC-Web
 Simple social network on Spring Framework
 
-# Stack:
-
-* Spring Boot
-* Spring MVC
-* Spring Security
+## Stack:
+* Spring 2.1.6
+    * Spring Boot
+    * Spring MVC
+    * Spring Security
     
 * JPA
 * Lombok
 * MySQL DB
-* Bootstrap
-
 * Thymeleaf
+
 * Bootstrap
