@@ -9,12 +9,19 @@
 <div th:replace="/fragments/navbar :: navbar"></div>
 
 <div class="container">
-    <p th:text="'Hello, ' + ${name} + '!'"></p>
-    <br>
-    <a href="/registration">Registration</a>
-    <a href="/login">Login</a>
+    <div class="row">
+        <div class="mx-auto mt-3 mb-3">
+            <h1 th:text="'Hello, ' + ${name} + '!'"></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="d-flex flex-column mx-auto mb-3">
+            <a href="/registration" class="btn btn-primary btn-lg" role="button">Sign in</a>
+            <a href="/login" class="btn btn-secondary btn-lg mt-2" role="button">Sign up</a>
+        </div>
+    </div>
+    <hr>
 </div>
-
 <div th:replace="/fragments/import :: scripts"></div>
 </body>
 </html>
