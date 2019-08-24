@@ -7,3 +7,8 @@ body {
     background: rgb(16,23,43);
     background: linear-gradient(180deg, rgba(16,23,43,1) 0%, rgba(235,238,255,1) 10%);
 }
+
+.turbolinks-progress-bar {
+    height: 3px;
+    background-color: gray;
+}

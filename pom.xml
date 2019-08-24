@@ -13,6 +13,7 @@
         <jquery.version>3.4.1</jquery.version>
         <bootstrap.version>4.3.1</bootstrap.version>
         <popper.version>1.15.0</popper.version>
+        <turbolinks.version>5.2.0</turbolinks.version>
     </properties>
 
     <parent>
@@ -76,6 +77,11 @@
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>${bootstrap.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>turbolinks</artifactId>
+            <version>${turbolinks.version}</version>
         </dependency>
     </dependencies>
 
