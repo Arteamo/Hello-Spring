@@ -1,5 +1,5 @@
-# Spring-MVC-Web
-Simple social network on Spring Framework
+# Hello-Spring
+Simple MVC website on Spring Framework
 
 ## Stack:
 * Spring 2.1.6
@@ -11,5 +11,5 @@ Simple social network on Spring Framework
 * Lombok
 * MySQL DB
 * Thymeleaf
-
 * Bootstrap
+* Turbolinks
