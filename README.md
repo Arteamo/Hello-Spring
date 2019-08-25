@@ -6,10 +6,14 @@ Simple MVC website on Spring Framework
     * Spring Boot
     * Spring MVC
     * Spring Security
-    
 * JPA
 * Lombok
-* MySQL DB
+---
+* HTML5 CSS JS
 * Thymeleaf
+* jQuery
 * Bootstrap
 * Turbolinks
+---
+* MySQL
+* Maven

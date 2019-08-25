@@ -1,17 +1,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <!--/*@thymesVar id="title" type="templates"*/-->
-<head th:fragment="header(title)">
+<!--/*@thymesVar id="links" type="templates"*/-->
+<!--/*@thymesVar id="scripts" type="templates"*/-->
+
+<head th:fragment="header(title, links)">
     <title th:replace="${title}">Spring App</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link type="text/css" rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="/css/style.css">
     <script src="/webjars/turbolinks/5.2.0/dist/turbolinks.js"></script>
-    <script defer src="/webjars/jquery/3.4.1/jquery.slim.min.js"></script>
-    <script defer src="/webjars/popper.js/1.15.0/umd/popper.min.js"></script>
+    <th:block th:replace="${links}"/>
 </head>
 
-<div th:fragment="scripts">
+<div th:fragment="scripts(scripts)">
+    <script src="/webjars/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="/webjars/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <th:block th:replace="${scripts}"/>
 </div>

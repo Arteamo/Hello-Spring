@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="/fragments/import :: header(~{::title})">
+<head th:replace="/fragments/import :: header(~{::title}, ~{})">
     <title>Hello</title>
 </head>
 
@@ -22,6 +22,6 @@
     </div>
     <hr>
 </div>
-<div th:replace="/fragments/import :: scripts"></div>
+<div th:replace="/fragments/import :: scripts(~{})"></div>
 </body>
 </html>
