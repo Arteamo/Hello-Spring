@@ -6,22 +6,29 @@
 </head>
 
 <body>
-<div th:replace="/fragments/navbar :: navbar"></div>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
 
 <div class="container">
-    <a href="/registration">Register now</a>
-    <br>
-    <form th:action="@{/login}" method="post">
-        <label for="username">Login</label>
-        <input type="text" name="username" id="username" autocomplete="off">
-        <br>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" autocomplete="off">
-        <br>
-        <button type="submit">Login</button>
-    </form>
+    <div class="mt-3 col-6 mx-auto">
+        <div class="row card">
+            <h3 class="card-header">Sign in</h3>
+            <form class="mx-auto card-body" th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text" name="username" id="username"
+                           placeholder="Enter username" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" name="password" id="password"
+                           placeholder="Enter password" autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary col-12">Sign in</button>
+            </form>
+            <a href="/registration" class="card-footer">Sign up here</a>
+        </div>
+    </div>
 </div>
-
 <div th:replace="/fragments/import :: scripts"></div>
 </body>
 </html>

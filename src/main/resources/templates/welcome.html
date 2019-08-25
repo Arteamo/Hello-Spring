@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<div th:replace="/fragments/navbar :: navbar"></div>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
 
 <div class="container">
     <div class="row">
@@ -16,8 +16,8 @@
     </div>
     <div class="row">
         <div class="d-flex flex-column mx-auto mb-3">
-            <a href="/registration" class="btn btn-primary btn-lg" role="button">Sign in</a>
-            <a href="/login" class="btn btn-secondary btn-lg mt-2" role="button">Sign up</a>
+            <a href="/login" class="btn btn-primary btn-lg" role="button">Sign in</a>
+            <a href="/registration" class="btn btn-secondary btn-lg mt-2" role="button">Sign up</a>
         </div>
     </div>
     <hr>

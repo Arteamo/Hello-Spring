@@ -5,22 +5,23 @@
     <title>Registration</title>
 </head>
 <body>
-<div th:replace="/fragments/navbar :: navbar"></div>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
 
 <div class="container">
-    <form th:action="@{/registration}" method="post">
-        <label for="username">Login</label>
-        <input type="text" name="username" id="username" autocomplete="off">
+    <div class="row">
+        <form th:action="@{/registration}" method="post">
+            <label for="username">Login</label>
+            <input type="text" name="username" id="username" autocomplete="off">
+            <br>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" autocomplete="off">
+            <br>
+            <button type="submit">Register</button>
+        </form>
         <br>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" autocomplete="off">
-        <br>
-        <button type="submit">Register</button>
-    </form>
-    <br>
-    <span th:if="${error != null}" th:text="${error}"></span>
+        <span th:if="${error != null}" th:text="${error}"></span>
+    </div>
 </div>
-
 <div th:replace="/fragments/import :: scripts"></div>
 </body>
 </html>

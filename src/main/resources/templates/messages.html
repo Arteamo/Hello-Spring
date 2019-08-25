@@ -6,22 +6,24 @@
 </head>
 
 <body>
-<div th:replace="/fragments/navbar :: navbar"></div>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
 
 <div class="container">
-    <form method="post" th:action="@{/logout}">
-        <button type="submit">Logout</button>
-    </form>
-    <br>
-    <form method="post" th:action="@{/messages}">
-        <label for="text">Text</label>
-        <input type="text" name="text" id="text" autocomplete="off" required>
+    <div class="row">
+        <form method="post" th:action="@{/logout}">
+            <button type="submit">Logout</button>
+        </form>
         <br>
-        <button type="submit">Submit</button>
-    </form>
-    <ul th:each="message : ${messages}">
-        <li th:text="${message}"></li>
-    </ul>
+        <form method="post" th:action="@{/messages}">
+            <label for="text">Text</label>
+            <input type="text" name="text" id="text" autocomplete="off" required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <ul th:each="message : ${messages}">
+            <li th:text="${message}"></li>
+        </ul>
+    </div>
 </div>
 
 <div th:replace="/fragments/import :: scripts"></div>
