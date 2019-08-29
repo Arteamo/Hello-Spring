@@ -17,3 +17,4 @@ Simple MVC website on Spring Framework
 ---
 * MySQL
 * Maven
+* Github Actions
