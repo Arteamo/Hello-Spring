@@ -1,4 +1,4 @@
-package com.arteamo.entities;
+package com.arteamo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

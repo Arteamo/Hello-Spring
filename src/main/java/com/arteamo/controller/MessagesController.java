@@ -1,6 +1,6 @@
 package com.arteamo.controller;
 
-import com.arteamo.entities.Message;
+import com.arteamo.entity.Message;
 import com.arteamo.repository.MessageRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
