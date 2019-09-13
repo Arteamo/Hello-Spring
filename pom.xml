@@ -14,14 +14,14 @@
         <bootstrap.version>4.3.1</bootstrap.version>
         <popper.version>1.15.0</popper.version>
         <turbolinks.version>5.2.0</turbolinks.version>
+        <h2.version>1.4.199</h2.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
     </parent>
-
 
     <dependencies>
         <dependency>
@@ -59,6 +59,12 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
