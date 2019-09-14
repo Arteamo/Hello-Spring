@@ -13,8 +13,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 12
-    - name: Set up MAVEN_OPTS
-      run: export MAVEN_OPTS="-Dspring.profiles.active=dev"
     - name: Build with Maven
       run: mvn package -DskipTests --file pom.xml
     - name: Run tests
