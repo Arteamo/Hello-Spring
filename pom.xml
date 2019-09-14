@@ -103,6 +103,9 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
+                    <jvmArguments>
+                        -server -Dspring.profiles.active=dev
+                    </jvmArguments>
                 </configuration>
             </plugin>
         </plugins>
