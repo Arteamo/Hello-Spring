@@ -19,7 +19,6 @@
         <compiler.version>3.8.1</compiler.version>
         <surefire.version>3.0.0-M3</surefire.version>
         <jvm.properties>-server -Dspring.profiles.active=dev</jvm.properties>
-        <compiler.properties>-server</compiler.properties>
     </properties>
 
     <parent>
@@ -107,9 +106,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${compiler.version}</version>
-                <configuration>
-                    <compilerArgs>${compiler.properties}</compilerArgs>
-                </configuration>
             </plugin>
 
             <plugin>
