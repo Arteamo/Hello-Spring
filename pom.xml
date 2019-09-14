@@ -19,7 +19,7 @@
         <compiler.version>3.8.1</compiler.version>
         <surefire.version>3.0.0-M3</surefire.version>
         <jvm.properties>-server -Dspring.profiles.active=dev</jvm.properties>
-        <compiler.properties>-server</jvm.properties>
+        <compiler.properties>-server</compiler.properties>
     </properties>
 
     <parent>
