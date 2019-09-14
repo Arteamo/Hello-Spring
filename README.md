@@ -8,8 +8,7 @@ Package: `mvn clean package -DskipTests`
 Run tests: `mvn clean test`
 
 ### JVM Properties
-Run JVM: `-server`  
-Debug properties: `-Dspring.profiles.active=dev` 
+Debug properties: `-server -Dspring.profiles.active=dev` 
 
 ## Stack:
 * Spring 2.1.6
@@ -25,6 +24,6 @@ Debug properties: `-Dspring.profiles.active=dev`
 * Bootstrap
 * Turbolinks
 ---
-* MySQL
+* MySQL/H2
 * Maven
 * Github Actions
