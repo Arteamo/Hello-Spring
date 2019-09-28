@@ -14,6 +14,8 @@
         <bootstrap.version>4.3.1</bootstrap.version>
         <popper.version>1.15.0</popper.version>
         <turbolinks.version>5.2.0</turbolinks.version>
+        <sockjs.version>1.1.2</sockjs.version>
+        <stomp.version>2.3.3-1</stomp.version>
         <h2.version>1.4.199</h2.version>
 
         <compiler.version>3.8.1</compiler.version>
@@ -58,6 +60,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            <version>3.0.4.RELEASE</version>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
@@ -98,6 +106,16 @@
             <artifactId>turbolinks</artifactId>
             <version>${turbolinks.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>sockjs-client</artifactId>
+            <version>${sockjs.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>stomp-websocket</artifactId>
+            <version>${stomp.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -110,7 +128,6 @@
                     <argLine>${jvm.properties}</argLine>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
