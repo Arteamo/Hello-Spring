@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="/fragments/import :: header(~{::title}, ~{})">
     <title>Hello</title>
@@ -7,8 +7,7 @@
 
 <body>
 <nav th:replace="/fragments/navbar :: navbar"></nav>
-
-<div class="container">
+<div class="container" sec:authorize="isAnonymous()">
     <div class="row">
         <div class="mx-auto mt-3 mb-3">
             <h1 th:text="'Hello, ' + ${name} + '!'"></h1>
@@ -22,6 +21,12 @@
     </div>
     <hr>
 </div>
-<div th:replace="/fragments/import :: scripts(~{})"></div>
+
+<div class="container" sec:authorize="isAuthenticated()">
+    <div th:replace="/fragments/import :: scripts(~{})">
+        <script src="/webjars/sockjs-client/1.1.2/sockjs.min.js"></script>
+        <script src="/webjars/stomp-websocket/2.3.3-1/stomp.min.js"></script>
+    </div>
+</div>
 </body>
 </html>
