@@ -12,16 +12,15 @@
         <div class="card-body">
             <span th:text="${text}"></span>
         </div>
-        <div class="card-footer">
-            <form>
-                <div class="form-row">
-                    <button class="btn btn-dark col-1 text-center mr-1" type="button">Edit</button>
-                    <button th:action="@{/messages/delete/{id}(id=${id})}" th:method="delete"
-                            class="btn btn-danger col-1 text-center" type="submit">
-                        Delete
-                    </button>
-                </div>
-            </form>
+        <div class="card-footer" th:if="${#authentication.getName().equals(author)}">
+            <div class="row">
+                <form class="col-2">
+                    <button class="btn btn-dark col text-center mr-1" type="button">Edit</button>
+                </form>
+                <form class="col" th:action="@{/messages/delete/{id}(id=${id})}" th:method="delete">
+                    <button class="btn btn-danger col-2 text-center" type="submit">Delete</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

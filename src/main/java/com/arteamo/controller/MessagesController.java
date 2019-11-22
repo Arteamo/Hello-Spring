@@ -2,6 +2,7 @@ package com.arteamo.controller;
 
 import com.arteamo.entity.Message;
 import com.arteamo.repository.MessageRepo;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MessagesController {
     private final MessageRepo messageRepo;
+    private Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
     public MessagesController(MessageRepo messageRepo) {
         this.messageRepo = messageRepo;
     }
 
     @GetMapping("/messages")
-    public String messages(Model model) {
+    public String getMessages(Model model) {
         Iterable<Message> messages = messageRepo.findAll();
         model.addAttribute("messages", messages);
 
@@ -35,16 +37,19 @@ public class MessagesController {
         Iterable<Message> messages = messageRepo.findAll();
         model.addAttribute("messages", messages);
 
-        return "messages";
+        return "redirect:/" + "messages";
     }
 
     @DeleteMapping("/messages/delete/{id}")
     public String deleteMessage(@PathVariable(value = "id") Long id, Model model) {
-        messageRepo.deleteMessageById(id);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (messageRepo.findMessageById(id).getAuthor().equals(auth.getName())) {
+            messageRepo.deleteMessageById(id);
+        }
 
         Iterable<Message> messages = messageRepo.findAll();
         model.addAttribute("messages", messages);
 
-        return "messages";
+        return "redirect:/" + "messages";
     }
 }
