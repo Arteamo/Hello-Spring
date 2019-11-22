@@ -9,17 +9,23 @@
 <nav th:replace="/fragments/navbar :: navbar"></nav>
 
 <div class="container">
-    <div class="row">
-        <br/>
-        <form method="post" th:action="@{/messages}">
-            <label for="text">Text</label>
-            <input type="text" name="text" id="text" autocomplete="off" required/>
-            <br>
-            <button type="submit">Submit</button>
+    <div class="card mt-3">
+        <h3 class="card-header">Create message</h3>
+        <form method="post" th:action="@{/messages}" class="card-body">
+            <div class="form-group">
+                <div class="form-row">
+                    <input class="form-control col-2 mr-1" type="text" name="subject" id="subject" autocomplete="off"
+                           placeholder="Subject" required/>
+                    <input class="form-control col ml-1" type="text" name="text" id="text" autocomplete="off"
+                           placeholder="Enter your message here" required/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary col-12 text-center">Send message</button>
         </form>
-        <ul th:each="message : ${messages}">
-            <li th:text="${message}"></li>
-        </ul>
+        <hr>
+        <div th:each="messageObject : ${messages}">
+            <div th:replace="/fragments/message :: message(${messageObject.getSubject()}, ${messageObject.getText()}, ${messageObject.getAuthor()})"></div>
+        </div>
     </div>
 </div>
 

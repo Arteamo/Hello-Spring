@@ -20,5 +20,11 @@ public class Message {
     public Integer id;
 
     @NonNull
-    private String message;
+    private String subject;
+
+    @NonNull
+    private String text;
+
+    @NonNull
+    private String author;
 }

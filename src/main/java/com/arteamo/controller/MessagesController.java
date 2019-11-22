@@ -2,6 +2,7 @@ package com.arteamo.controller;
 
 import com.arteamo.entity.Message;
 import com.arteamo.repository.MessageRepo;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +26,9 @@ public class MessagesController {
     }
 
     @PostMapping("/messages")
-    public String sendMessage(@RequestParam String text, Model model) {
-        Message message = new Message(text);
+    public String sendMessage(@RequestParam String subject, @RequestParam String text, Model model) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Message message = new Message(subject, text, username);
         messageRepo.save(message);
         Iterable<Message> messages = messageRepo.findAll();
         model.addAttribute("messages", messages);

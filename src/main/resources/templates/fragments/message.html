@@ -1,0 +1,23 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="author" type="templates"*/-->
+<!--/*@thymesVar id="subject" type="templates"*/-->
+<!--/*@thymesVar id="text" type="templates"*/-->
+
+<div th:fragment="message(subject, text, author)">
+    <div class="card mx-2 mb-2">
+        <div class="card-header">
+            <span th:text="${author}"></span> : <span th:text="${subject}"></span>
+        </div>
+        <div class="card-body">
+            <span th:text="${text}"></span>
+        </div>
+        <div class="card-footer">
+            <form>
+                <div class="form-row">
+                    <button class="btn btn-dark col-1 text-center mr-1" type="button">Edit</button>
+                    <button class="btn btn-danger col-1 text-center" type="submit">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

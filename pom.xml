@@ -9,7 +9,7 @@
     <version>1.0</version>
 
     <properties>
-        <java.version>12</java.version>
+        <java.version>1.8</java.version>
         <jquery.version>3.4.1</jquery.version>
         <bootstrap.version>4.3.1</bootstrap.version>
         <popper.version>1.15.0</popper.version>
