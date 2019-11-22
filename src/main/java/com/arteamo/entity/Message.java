@@ -17,7 +17,7 @@ import javax.persistence.Id;
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+    public Long id;
 
     @NonNull
     private String subject;

@@ -24,7 +24,13 @@
         </form>
         <hr>
         <div th:each="messageObject : ${messages}">
-            <div th:replace="/fragments/message :: message(${messageObject.getSubject()}, ${messageObject.getText()}, ${messageObject.getAuthor()})"></div>
+            <div th:replace="/fragments/message :: message(
+            ${messageObject.getId()},
+            ${messageObject.getAuthor()},
+            ${messageObject.getSubject()},
+            ${messageObject.getText()}
+            )">
+            </div>
         </div>
     </div>
 </div>
