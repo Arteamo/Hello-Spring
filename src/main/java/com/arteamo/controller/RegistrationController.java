@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collections;
 
+import static com.arteamo.util.Utils.REDIRECT;
+
 @Controller
 public class RegistrationController {
     private final UserRepo userRepo;
@@ -37,6 +39,6 @@ public class RegistrationController {
 
         userRepo.save(user);
 
-        return "redirect:/" + "login";
+        return REDIRECT + "login";
     }
 }

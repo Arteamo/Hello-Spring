@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import static com.arteamo.util.Utils.REDIRECT;
+
 @Controller
 public class MessagesController {
     private final MessageRepo messageRepo;
@@ -37,7 +39,7 @@ public class MessagesController {
         Iterable<Message> messages = messageRepo.findAll();
         model.addAttribute("messages", messages);
 
-        return "redirect:/" + "messages";
+        return REDIRECT + "messages";
     }
 
     @DeleteMapping("/messages/delete/{id}")
@@ -50,6 +52,6 @@ public class MessagesController {
         Iterable<Message> messages = messageRepo.findAll();
         model.addAttribute("messages", messages);
 
-        return "redirect:/" + "messages";
+        return REDIRECT + "messages";
     }
 }
