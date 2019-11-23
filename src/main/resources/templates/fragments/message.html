@@ -15,10 +15,39 @@
         <div class="card-footer" th:if="${#authentication.getName().equals(author)}">
             <div class="row">
                 <form class="col-2">
-                    <button class="btn btn-dark col text-center mr-1" type="button">Edit</button>
+                    <button class="btn btn-dark col text-center mr-1" type="button" data-toggle="modal"
+                            th:attr="data-target='#edit-form' + ${id}">Edit
+                    </button>
                 </form>
                 <form class="col" th:action="@{/messages/delete/{id}(id=${id})}" th:method="delete">
                     <button class="btn btn-danger col-2 text-center" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal fade" th:id="'edit-form' + ${id}" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form class="modal-content" th:action="@{/messages/edit/{id}(id=${id})}" th:method="put">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body form-group">
+                        <div class="form-row">
+                            <input class="form-control col-2 mr-1" type="text" name="subject" id="subject"
+                                   autocomplete="off"
+                                   placeholder="Subject" th:value="${subject}" required/>
+                            <input class="form-control col ml-1" type="text" name="text" id="text" autocomplete="off"
+                                   placeholder="Enter your message here" th:value="${text}" required/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </form>
             </div>
         </div>

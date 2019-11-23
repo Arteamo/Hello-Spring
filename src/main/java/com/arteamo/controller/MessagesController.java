@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.arteamo.util.Utils.REDIRECT;
@@ -32,26 +33,47 @@ public class MessagesController {
     }
 
     @PostMapping("/messages")
-    public String sendMessage(@RequestParam String subject, @RequestParam String text, Model model) {
+    public String sendMessage(
+            @RequestParam String subject,
+            @RequestParam String text
+    ) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         Message message = new Message(subject, text, username);
         messageRepo.save(message);
-        Iterable<Message> messages = messageRepo.findAll();
-        model.addAttribute("messages", messages);
 
         return REDIRECT + "messages";
     }
 
     @DeleteMapping("/messages/delete/{id}")
-    public String deleteMessage(@PathVariable(value = "id") Long id, Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (messageRepo.findMessageById(id).getAuthor().equals(auth.getName())) {
+    public String deleteMessage(
+            @PathVariable(value = "id") Long id
+    ) {
+
+        if (authorizationIsValid(id)) {
             messageRepo.deleteMessageById(id);
         }
 
-        Iterable<Message> messages = messageRepo.findAll();
-        model.addAttribute("messages", messages);
+        return REDIRECT + "messages";
+    }
+
+    @PutMapping("/messages/edit/{id}")
+    public String updateMessage(
+            @PathVariable(value = "id") Long id,
+            @RequestParam String subject,
+            @RequestParam String text
+    ) {
+        if (authorizationIsValid(id)) {
+            Message updatedMessage = messageRepo.findMessageById(id)
+                    .setSubject(subject)
+                    .setText(text);
+            messageRepo.save(updatedMessage);
+        }
 
         return REDIRECT + "messages";
+    }
+
+    private boolean authorizationIsValid(Long id) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return messageRepo.findMessageById(id).getAuthor().equals(auth.getName());
     }
 }

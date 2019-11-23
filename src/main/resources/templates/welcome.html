@@ -23,7 +23,7 @@
 </div>
 
 <div class="container" sec:authorize="isAuthenticated()">
-    <div th:replace="/fragments/import :: scripts(~{})">
+    <div th:replace="/fragments/import :: scripts(~{::script})">
         <script src="/webjars/sockjs-client/1.1.2/sockjs.min.js"></script>
         <script src="/webjars/stomp-websocket/2.3.3-1/stomp.min.js"></script>
     </div>
