@@ -18,7 +18,6 @@ import static com.arteamo.util.Utils.REDIRECT;
 @Controller
 public class MessagesController {
     private final MessageRepo messageRepo;
-    private Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
     public MessagesController(MessageRepo messageRepo) {
         this.messageRepo = messageRepo;

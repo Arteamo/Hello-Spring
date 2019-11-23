@@ -23,15 +23,15 @@
                     <input class="form-control" type="password" name="password" id="password"
                            placeholder="Enter password" autocomplete="off"/>
                 </div>
-                <button type="submit" class="btn btn-primary col-12">Create account</button>
+                <button type="submit" class="btn btn-primary col-12" id="submit">Create account</button>
             </form>
             <span class="card-footer text-danger text-center" th:if="${error != null}" th:text="${error}"></span>
         </div>
     </div>
 </div>
 
-<div th:replace="/fragments/import :: scripts(~{::script})">
-<!--    <script src="/js/password-validation.js"></script>-->
+<div th:replace="/fragments/import :: scripts(~{})">
+    <script src="/js/user-validation.js"></script>
 </div>
 </body>
 </html>
