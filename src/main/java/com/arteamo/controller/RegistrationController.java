@@ -8,7 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import static com.arteamo.util.Utils.REDIRECT;
 
@@ -35,7 +36,14 @@ public class RegistrationController {
         }
 
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
+
+        Set<Role>  userRoles = new HashSet<>();
+        userRoles.add(Role.USER);
+
+        if (user.getUsername().equals("admin")) {
+            userRoles.add(Role.ADMIN);
+        }
+        user.setRoles(userRoles);
 
         userRepo.save(user);
 

@@ -6,6 +6,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,4 +30,15 @@ public class Message {
 
     @NonNull
     private String author;
+
+    @NonNull
+    @Column(columnDefinition = "BOOLEAN")
+    private boolean isCompleted;
+
+    public Message(@NonNull String subject, @NonNull String text, @NonNull String author) {
+        this.subject = subject;
+        this.text = text;
+        this.author = author;
+        this.isCompleted = false;
+    }
 }

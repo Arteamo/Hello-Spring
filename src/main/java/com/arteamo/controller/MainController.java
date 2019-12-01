@@ -13,7 +13,7 @@ public class MainController {
     
     @GetMapping("/")
     public String welcome(
-            @RequestParam(name = "name", required = false, defaultValue = "World") String name,
+            @RequestParam(name = "name", required = false, defaultValue = "user") String name,
             Authentication authentication,
             Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

@@ -11,7 +11,7 @@ Run tests: `mvn clean test`
 Debug properties: `-server -Dspring.profiles.active=dev` 
 
 ## Stack:
-* Spring 2.1.6
+* Spring 2.1.8
     * Spring Boot
     * Spring MVC
     * Spring Security

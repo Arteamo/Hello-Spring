@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import static com.arteamo.user.Role.ADMIN;
 import static com.arteamo.util.Utils.REDIRECT;
 
 @Controller
@@ -27,7 +28,7 @@ public class MessagesController {
     public String getMessages(Model model) {
         Iterable<Message> messages = messageRepo.findAll();
         model.addAttribute("messages", messages);
-
+        model.addAttribute("isAdmin", isAdmin());
         return "messages";
     }
 
@@ -47,8 +48,7 @@ public class MessagesController {
     public String deleteMessage(
             @PathVariable(value = "id") Long id
     ) {
-
-        if (authorizationIsValid(id)) {
+        if (authorizationIsValid(id) || isAdmin()) {
             messageRepo.deleteMessageById(id);
         }
 
@@ -61,7 +61,7 @@ public class MessagesController {
             @RequestParam String subject,
             @RequestParam String text
     ) {
-        if (authorizationIsValid(id)) {
+        if (authorizationIsValid(id) || isAdmin()) {
             Message updatedMessage = messageRepo.findMessageById(id)
                     .setSubject(subject)
                     .setText(text);
@@ -71,8 +71,27 @@ public class MessagesController {
         return REDIRECT + "messages";
     }
 
+    @PutMapping("/messages/complete/{id}")
+    public String completeTask(
+            @PathVariable(value = "id") Long id
+    ) {
+        if (isAdmin()) {
+            Message completeMessage = messageRepo.findMessageById(id)
+                    .setCompleted(true);
+
+            messageRepo.save(completeMessage);
+        }
+
+        return REDIRECT + "messages";
+    }
+
     private boolean authorizationIsValid(Long id) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return messageRepo.findMessageById(id).getAuthor().equals(auth.getName());
+    }
+
+    private boolean isAdmin() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getAuthorities().contains(ADMIN);
     }
 }
